@@ -71,7 +71,48 @@
     ],
     "physicsStartAwake": true,
     "properties": [
-        
+        {
+            "id": "a2d928e5-cf57-42eb-be40-6757915e83df",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "spr_character_idle_jump",
+            "varName": "character_idle_jump",
+            "varType": 5
+        },
+        {
+            "id": "07fba426-5950-40c9-805d-34785ff3e555",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "spr_character_run",
+            "varName": "chracter_move",
+            "varType": 5
+        },
+        {
+            "id": "ff53d4c1-b5b8-40a6-8af5-2983afa1ca84",
+            "modelName": "GMObjectProperty",
+            "mvc": "1.0",
+            "listItems": null,
+            "multiselect": false,
+            "rangeEnabled": false,
+            "rangeMax": 10,
+            "rangeMin": 0,
+            "resourceFilter": 1023,
+            "value": "spr_character_idle",
+            "varName": "chracter_idle",
+            "varType": 5
+        }
     ],
     "solid": false,
     "spriteId": "84f70cc8-fad5-461f-881a-1748c298cb83",

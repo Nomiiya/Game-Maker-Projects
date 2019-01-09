@@ -1,3 +1,4 @@
+/*
 // Movement options
 // Basic movement, WAD, left/jump/right
 
@@ -8,9 +9,11 @@ if(keyboard_check(vk_right) || keyboard_check(ord("D"))){
 	}
 	else{
 		x += src_approach(0, mSpeed, aSpeed);
+		sprite_index = spr_character_idle_jump;
 	}
-	
+	 = spr_character_idle;
 }
+
 // Move left (A || left key)
 if(keyboard_check(vk_left) || keyboard_check(ord("A"))){
 	//if chacter about to hit a wall on the left, do nothing
@@ -24,3 +27,7 @@ if(keyboard_check(vk_left) || keyboard_check(ord("A"))){
 if(keyboard_check(vk_up) || keyboard_check(ord("W")) || keyboard_check(vk_space)){
 	// If there is an object over head, stop the chacter
 }
+
+if(keyboard_check(vk_nokey)){
+	sprite_index(spr_character_idle);	
+}*/
