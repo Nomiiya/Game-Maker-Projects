@@ -2,7 +2,7 @@
     "id": "fa0ac653-af7d-4eae-b174-fb9d044eaeba",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "character_idle_jump",
+    "name": "spr_character_idle_jump",
     "For3D": false,
     "HTile": false,
     "VTile": false,
