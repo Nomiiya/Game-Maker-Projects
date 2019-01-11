@@ -1,7 +1,7 @@
 //Initialization of the chracter
-grav = 0.2;
-hspd = 0;
-vspd = 0;
+grv = 0.2;
+hsp = 0;
+vsp = 0;
 jumpspd = 3;
 movspd = 4;
 

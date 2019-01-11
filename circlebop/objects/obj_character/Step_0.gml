@@ -1,6 +1,20 @@
 // Movement options
 // Basic movement, WAD, left/jump/right
 
+
+if(place_free(x, y-1)){
+	gravity = 0.8;
+}
+
+/*
+// Gravity Manipulation
+if(place_meeting(x, y+grv, obj_platform)){
+	y += grv;
+}
+else{
+	
+}
+	
 // Move right (D || right key)
 if(keyboard_check(vk_right) || keyboard_check(ord("D"))){
 	//if character is about to hit the wall, do nothing.
@@ -10,7 +24,6 @@ if(keyboard_check(vk_right) || keyboard_check(ord("D"))){
 		sprite_index = spr_character_run;
 		x += src_approach(0, mSpeed, aSpeed);
 	}
-	 sprite_index = spr_character_idle;
 }
 
 // Move left (A || left key)
@@ -30,3 +43,4 @@ if(keyboard_check(vk_up) || keyboard_check(ord("W")) || keyboard_check(vk_space)
 if(keyboard_check(vk_nokey)){
 	sprite_index = spr_character_idle_jump;
 }
+*/
