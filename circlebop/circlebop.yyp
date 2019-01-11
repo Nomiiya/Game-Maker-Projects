@@ -151,6 +151,14 @@
             }
         },
         {
+            "Key": "a68bc1ea-5fc0-48b0-9fc3-1e4498444f72",
+            "Value": {
+                "id": "a3f6f2d1-77f3-4677-8e05-88b12b7bfc61",
+                "resourcePath": "sprites\\spr_character_jump\\spr_character_jump.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "ab3aba80-7132-44ff-ae5b-7c9d75d22fb9",
             "Value": {
                 "id": "f4e951c8-48c1-44ef-95f1-80d5ce989766",
