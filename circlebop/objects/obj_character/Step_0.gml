@@ -54,8 +54,15 @@ if(key_up && place_meeting(x, y+1, obj_platform)){
 // Gravity
 // Vsp was already set up top
 
-if(
+if(position_meeting(x, y+vsp, obj_platform)){
+	while(!position_meeting(x, y+sign(vsp), obj_platform)){
+		y += vsp;
+	}
+	vsp = 0;
+}
 
+
+//y += vsp;
 
 
 // Calculating the movement
