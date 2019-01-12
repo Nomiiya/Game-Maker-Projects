@@ -4,6 +4,16 @@ key_left =	keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_up = keyboard_check_pressed(vk_space);
 
+// Setting Global Gravity
+vsp = grv;
+
+
+// Idle Animation
+if(keyboard_check(vk_nokey)){
+	sprite_index = spr_character_idle;	
+}
+
+
 // Set the left or right movements along with the animation
 if(key_left || key_right){
 	// Set the animation
@@ -12,18 +22,40 @@ if(key_left || key_right){
 	// Set the running speed
 	hsp = walksp;
 	
-	//check for collision
-	if(place_meeting(x+hsp, y, obj_platform)){
-		while(!place_meeting(x+sign(hsp), y, obj_platform)){
-				
+	if(key_right){
+		// Check for collision
+		if(place_meeting(x+hsp, y, obj_platform)){
+			while(!place_meeting(x+sign(hsp), y, obj_platform)){
+					x += hsp;
+			}
+			hsp = 0;
 		}
+		x += hsp;
+	}
+	
+	if(key_left){
+		// Check for collision
+		if(place_meeting(x+hsp, y, obj_platform)){
+			while(!place_meeting(x+sign(hsp), y, obj_platform)){
+					x -= hsp;
+			}
+			hsp = 0;
+		}
+		x -= hsp;
 	}
 }
-else{
-	sprite_index = spr_character_idle;	
+
+// Jumping Mechanic
+if(key_up && place_meeting(x, y+1, obj_platform)){
+	sprite_index = spr_character_jump;
+	vsp = jmpsp;	
 }
 
-x += hsp;
+// Gravity
+// Vsp was already set up top
+
+if(
+
 
 
 // Calculating the movement
