@@ -4,8 +4,7 @@ key_left =	keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
 key_up = keyboard_check_pressed(vk_space);
 
-// Setting Global Gravity
-vsp = grv;
+
 
 
 // Idle Animation
@@ -45,24 +44,25 @@ if(key_left || key_right){
 	}
 }
 
-// Jumping Mechanic
-if(key_up && place_meeting(x, y+1, obj_platform)){
-	sprite_index = spr_character_jump;
-	vsp = jmpsp;	
-}
 
 // Gravity
-// Vsp was already set up top
+// Setting Global Gravity
+vsp = grv;
 
-if(position_meeting(x, y+vsp, obj_platform)){
-	while(!position_meeting(x, y+sign(vsp), obj_platform)){
-		y += vsp;
+if(keyboard_check_pressed(vk_space) && place_meeting(x, y+1, obj_platform)){
+	sprite_index = spr_character_jump;
+	vsp = jmpsp;
+}
+
+if(place_meeting(x, y+vsp, obj_platform)){
+	while(!place_meeting(x, y+sign(vsp), obj_platform)){
+		y += sign(vsp);	
 	}
 	vsp = 0;
 }
 
+y += vsp;
 
-//y += vsp;
 
 
 // Calculating the movement
