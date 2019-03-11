@@ -44,7 +44,7 @@ if(key_left || key_right){
 	}
 }
 
-
+/*
 // Gravity
 // Setting Global Gravity
 vsp = grv;
@@ -62,7 +62,7 @@ if(place_meeting(x, y+vsp, obj_platform)){
 }
 
 y += vsp;
-
+*/
 
 
 // Calculating the movement
