@@ -1,2 +1,8 @@
 Main Concepts of GM:
 	http://fauxoperativegames.com/essential_function_guide/
+
+	* Create an obj_mainControl object
+			* This is only for variables that are accessed through multiple objects, multiple times in a single frame.
+			
+
+	* Make sure to start using the prefix obj_ || spr_ and other prefixes.
