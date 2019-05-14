@@ -1,0 +1,3 @@
+03-11-19
+	https://gyazo.com/1982b85e5735cb0fcd512f2ef4fd54b1 
+	Main bug found for jumping.

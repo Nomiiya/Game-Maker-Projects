@@ -1,0 +1,32 @@
+Main Concepts of GM:
+	http://fauxoperativegames.com/essential_function_guide/
+	Steps:
+			1.) Create an obj_mainControl in the room for global Variables
+			2.) Create an Init Scripts, scr_initScriptName
+						scr_initMacros : a bunch of constant variables that cannot be changed during run time || https://pastebin.com/zAeAkHTD
+						scr_initSoundEmitters : a sound effect and music volume control || https://pastebin.com/RpzhK8gR
+						(optional) scr_initResolution : handles most of the resolution scaling for the game || https://pastebin.com/er4iyVsf
+
+	* Create an obj_mainControl object
+			* This is only for variables that are accessed through multiple objects, multiple times in a single frame.
+
+
+	* Make sure to start using the prefix obj_ || spr_ and other prefixes.
+
+	* Instanced vs Global Variables
+				x += h_speed;
+				totalDistanceTravelled += h_speed;
+				speedAtCheckPoint = h_speed;
+
+				^^^ Slower than ^^^^
+
+				var _hSpeed = h_speed;
+				x += _hSpeed ;
+				totalDistanceTravelled += _hSpeed ;
+				speedAtCheckPoint = _hSpeed ;
+
+   * Switch Statements vs If Statements
+	 			Usually SWITCH > IF unless there are only two situations
+
+	 * Init Scripts
+	 			Constant values with no name syntax, try to name constant variables with ALL CAPS
