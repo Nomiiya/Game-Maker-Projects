@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/spr_ply1.jpg" type="Texture" id=2]
 [ext_resource path="res://Sprite.gd" type="Script" id=3]
 [ext_resource path="res://kb_playerArm.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/spr_ply_arm.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/spr_floor1.jpg" type="Texture" id=6]
-[ext_resource path="res://Sprites/spr_bullet.png" type="Texture" id=7]
+[ext_resource path="res://bulletdelay.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/spr_floor1.jpg" type="Texture" id=7]
+[ext_resource path="res://col_area_bullet.gd" type="Script" id=8]
+[ext_resource path="res://Sprites/spr_bullet.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,6 +19,7 @@
 [sub_resource type="ParticlesMaterial" id=4]
 flag_disable_z = true
 gravity = Vector3( 0, 98, 0 )
+angular_velocity = 1.56887e-019
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
@@ -48,12 +51,21 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="kb_player/kb_playerArm"]
-position = Vector2( -0.280121, -6.44257 )
+position = Vector2( -0.380005, -0.205017 )
+rotation = 1.57079
 scale = Vector2( 1, 1.76 )
 texture = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="bulletdelay" type="Timer" parent="kb_player/kb_playerArm"]
+wait_time = 0.5
+one_shot = true
+script = ExtResource( 6 )
+
+[node name="Position2D" type="Position2D" parent="kb_player/kb_playerArm"]
+position = Vector2( 15.62, -0.205017 )
 
 [node name="Walls" type="Node" parent="."]
 editor/display_folded = true
@@ -66,7 +78,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall14"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall14"]
 scale = Vector2( 0.8, 0.800005 )
@@ -80,7 +92,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall26"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall26"]
 scale = Vector2( 0.8, 0.800005 )
@@ -94,7 +106,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall48"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall48"]
 scale = Vector2( 0.8, 0.800005 )
@@ -108,7 +120,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall60"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall60"]
 scale = Vector2( 0.8, 0.800005 )
@@ -122,7 +134,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall2"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall2"]
 scale = Vector2( 0.8, 0.800005 )
@@ -136,7 +148,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall24"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall24"]
 scale = Vector2( 0.8, 0.800005 )
@@ -150,7 +162,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall33"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall33"]
 scale = Vector2( 0.8, 0.800005 )
@@ -164,7 +176,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall41"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall41"]
 scale = Vector2( 0.8, 0.800005 )
@@ -178,7 +190,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall55"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall55"]
 scale = Vector2( 0.8, 0.800005 )
@@ -192,7 +204,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall3"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall3"]
 scale = Vector2( 0.8, 0.800005 )
@@ -206,7 +218,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall21"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall21"]
 scale = Vector2( 0.8, 0.800005 )
@@ -220,7 +232,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall32"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall32"]
 scale = Vector2( 0.8, 0.800005 )
@@ -234,7 +246,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall38"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall38"]
 scale = Vector2( 0.8, 0.800005 )
@@ -248,7 +260,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall54"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall54"]
 scale = Vector2( 0.8, 0.800005 )
@@ -262,7 +274,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall4"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall4"]
 scale = Vector2( 0.8, 0.800005 )
@@ -276,7 +288,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall17"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall17"]
 scale = Vector2( 0.8, 0.800005 )
@@ -290,7 +302,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall35"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall35"]
 scale = Vector2( 0.8, 0.800005 )
@@ -304,7 +316,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall39"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall39"]
 scale = Vector2( 0.8, 0.800005 )
@@ -318,7 +330,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall52"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall52"]
 scale = Vector2( 0.8, 0.800005 )
@@ -332,7 +344,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall5"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall5"]
 scale = Vector2( 0.8, 0.800005 )
@@ -346,7 +358,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall20"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall20"]
 scale = Vector2( 0.8, 0.800005 )
@@ -360,7 +372,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall31"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall31"]
 scale = Vector2( 0.8, 0.800005 )
@@ -374,7 +386,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall42"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall42"]
 scale = Vector2( 0.8, 0.800005 )
@@ -388,7 +400,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall56"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall56"]
 scale = Vector2( 0.8, 0.800005 )
@@ -402,7 +414,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall6"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall6"]
 scale = Vector2( 0.8, 0.800005 )
@@ -416,7 +428,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall13"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall13"]
 scale = Vector2( 0.8, 0.800005 )
@@ -430,7 +442,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall25"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall25"]
 scale = Vector2( 0.8, 0.800005 )
@@ -444,7 +456,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall47"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall47"]
 scale = Vector2( 0.8, 0.800005 )
@@ -458,7 +470,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall50"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall50"]
 scale = Vector2( 0.8, 0.800005 )
@@ -472,7 +484,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall7"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall7"]
 scale = Vector2( 0.8, 0.800005 )
@@ -486,7 +498,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall15"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall15"]
 scale = Vector2( 0.8, 0.800005 )
@@ -500,7 +512,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall28"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall28"]
 scale = Vector2( 0.8, 0.800005 )
@@ -514,7 +526,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall44"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall44"]
 scale = Vector2( 0.8, 0.800005 )
@@ -528,7 +540,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall57"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall57"]
 scale = Vector2( 0.8, 0.800005 )
@@ -542,7 +554,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall8"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall8"]
 scale = Vector2( 0.8, 0.800005 )
@@ -556,7 +568,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall23"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall23"]
 scale = Vector2( 0.8, 0.800005 )
@@ -570,7 +582,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall36"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall36"]
 scale = Vector2( 0.8, 0.800005 )
@@ -584,7 +596,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall40"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall40"]
 scale = Vector2( 0.8, 0.800005 )
@@ -598,7 +610,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall53"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall53"]
 scale = Vector2( 0.8, 0.800005 )
@@ -612,7 +624,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall9"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall9"]
 scale = Vector2( 0.8, 0.800005 )
@@ -626,7 +638,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall16"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall16"]
 scale = Vector2( 0.8, 0.800005 )
@@ -640,7 +652,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall34"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall34"]
 scale = Vector2( 0.8, 0.800005 )
@@ -654,7 +666,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall37"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall37"]
 scale = Vector2( 0.8, 0.800005 )
@@ -668,7 +680,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall51"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall51"]
 scale = Vector2( 0.8, 0.800005 )
@@ -682,7 +694,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall62"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall62"]
 scale = Vector2( 0.8, 0.800005 )
@@ -696,7 +708,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall10"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall10"]
 scale = Vector2( 0.8, 0.800005 )
@@ -710,7 +722,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall18"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall18"]
 scale = Vector2( 0.8, 0.800005 )
@@ -724,7 +736,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall27"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall27"]
 scale = Vector2( 0.8, 0.800005 )
@@ -738,7 +750,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall43"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall43"]
 scale = Vector2( 0.8, 0.800005 )
@@ -752,7 +764,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall58"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall58"]
 scale = Vector2( 0.8, 0.800005 )
@@ -766,7 +778,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall64"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall64"]
 scale = Vector2( 0.8, 0.800005 )
@@ -780,7 +792,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall11"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall11"]
 scale = Vector2( 0.8, 0.800005 )
@@ -794,7 +806,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall22"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall22"]
 scale = Vector2( 0.8, 0.800005 )
@@ -808,7 +820,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall29"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall29"]
 scale = Vector2( 0.8, 0.800005 )
@@ -822,7 +834,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall45"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall45"]
 scale = Vector2( 0.8, 0.800005 )
@@ -836,7 +848,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall59"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall59"]
 scale = Vector2( 0.8, 0.800005 )
@@ -850,7 +862,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall61"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall61"]
 scale = Vector2( 0.8, 0.800005 )
@@ -864,7 +876,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall66"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall66"]
 scale = Vector2( 0.8, 0.800005 )
@@ -878,7 +890,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall12"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall12"]
 scale = Vector2( 0.8, 0.800005 )
@@ -892,7 +904,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall19"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall19"]
 scale = Vector2( 0.8, 0.800005 )
@@ -906,7 +918,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall30"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall30"]
 scale = Vector2( 0.8, 0.800005 )
@@ -920,7 +932,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall46"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall46"]
 scale = Vector2( 0.8, 0.800005 )
@@ -934,7 +946,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall49"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall49"]
 scale = Vector2( 0.8, 0.800005 )
@@ -948,7 +960,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall63"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall63"]
 scale = Vector2( 0.8, 0.800005 )
@@ -962,7 +974,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall65"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall65"]
 scale = Vector2( 0.8, 0.800005 )
@@ -976,7 +988,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall67"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall67"]
 scale = Vector2( 0.8, 0.800005 )
@@ -990,7 +1002,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall109"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall109"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1004,7 +1016,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall68"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall68"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1018,7 +1030,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall105"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall105"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1032,7 +1044,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall76"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall76"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1046,7 +1058,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall112"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall112"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1060,7 +1072,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall83"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall83"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1074,7 +1086,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall92"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall92"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1088,7 +1100,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall86"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall86"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1102,7 +1114,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall101"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall101"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1116,7 +1128,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall69"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall69"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1130,7 +1142,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall114"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall114"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1144,7 +1156,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall78"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall78"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1158,7 +1170,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall106"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall106"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1172,7 +1184,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall80"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall80"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1186,7 +1198,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall108"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall108"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1200,7 +1212,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall91"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall91"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1214,7 +1226,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall99"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall99"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1228,7 +1240,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall70"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall70"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1242,7 +1254,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall116"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall116"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1256,7 +1268,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall79"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall79"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1270,7 +1282,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall107"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall107"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1284,7 +1296,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall81"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall81"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1298,7 +1310,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall97"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall97"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1312,7 +1324,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall88"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall88"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1326,7 +1338,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall100"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall100"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1340,7 +1352,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall71"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall71"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1354,7 +1366,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall103"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall103"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1368,7 +1380,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall74"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall74"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1382,7 +1394,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall113"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall113"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1396,7 +1408,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall84"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall84"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1410,7 +1422,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall98"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall98"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1424,7 +1436,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall89"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall89"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1438,7 +1450,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall96"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall96"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1452,7 +1464,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall72"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall72"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1466,7 +1478,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall111"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall111"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1480,7 +1492,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall77"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall77"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1494,7 +1506,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall115"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall115"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1508,7 +1520,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall85"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall85"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1522,7 +1534,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall93"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall93"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1536,7 +1548,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall87"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall87"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1550,7 +1562,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall95"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall95"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1564,7 +1576,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall73"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall73"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1578,7 +1590,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall104"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall104"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1592,7 +1604,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall75"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall75"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1606,7 +1618,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall110"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall110"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1620,7 +1632,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall82"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall82"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1634,7 +1646,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall102"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall102"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1648,7 +1660,7 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall90"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall90"]
 scale = Vector2( 0.8, 0.800005 )
@@ -1662,33 +1674,34 @@ __meta__ = {
 }
 
 [node name="spr_wall" type="Sprite" parent="Walls/sb_wall94"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="col_wall" type="CollisionShape2D" parent="Walls/sb_wall94"]
 scale = Vector2( 0.8, 0.800005 )
 shape = SubResource( 2 )
 
-[node name="col_area" type="Area2D" parent="."]
+[node name="col_area_bullet" type="Area2D" parent="."]
 position = Vector2( 264, 168 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="colShape_bullet" type="CollisionShape2D" parent="col_area"]
+[node name="colShape_bullet" type="CollisionShape2D" parent="col_area_bullet"]
 position = Vector2( -0.56842, 0.416824 )
 scale = Vector2( 0.400597, 0.428903 )
 shape = SubResource( 3 )
 
-[node name="spr_bullet" type="Sprite" parent="col_area"]
-texture = ExtResource( 7 )
+[node name="spr_bullet" type="Sprite" parent="col_area_bullet"]
+texture = ExtResource( 9 )
 
-[node name="Particles2D" type="Particles2D" parent="col_area"]
+[node name="Particles2D" type="Particles2D" parent="col_area_bullet"]
 light_mask = 10245
 position = Vector2( -4.16428, -1.70758 )
 amount = 3
 process_material = SubResource( 4 )
 
-[node name="Particles2D2" type="Particles2D" parent="col_area"]
+[node name="Particles2D2" type="Particles2D" parent="col_area_bullet"]
 light_mask = 10245
 position = Vector2( 3.46457, -2.68564 )
 amount = 3
