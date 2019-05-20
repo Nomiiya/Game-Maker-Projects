@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/kb_player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/col_area_bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/spr_player.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/spr_playerArm.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/spr_playerArm.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="kb_player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+bullet = ExtResource( 2 )
+
+[node name="spr_player" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 0.52, 1 )
+shape = SubResource( 1 )
+
+[node name="bulletdelay" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="spr_playerArm" type="Sprite" parent="."]
+position = Vector2( 0, -5 )
+scale = Vector2( 1.4, 1.44 )
+texture = ExtResource( 4 )
+offset = Vector2( 10, 0 )
+script = ExtResource( 5 )
+
+[node name="bulletContainer" type="Node" parent="."]

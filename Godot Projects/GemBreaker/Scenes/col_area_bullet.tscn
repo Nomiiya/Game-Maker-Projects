@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://col_area_bullet.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/col_area_bullet.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/spr_bullet.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
