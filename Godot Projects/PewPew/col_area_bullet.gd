@@ -1,14 +1,23 @@
 extends Area2D
 
-const speed = 1000
-
-var target = Vector2()
 var velocity = Vector2()
+const SPEED = 1000
+onready var notifNode = get_node("notif_bullet")
 
 func _ready():
-	target = get_global_mouse_position()
-	velocity = -(position - target).normalized()
-	pass
+	connect("area_entered", self, "_on_area_enter")
+	set_process(true)
 
-func _fixed_process(delta):
-	position += velocity
+func start_at(dir, pos):
+	set_rotation(dir)
+	set_position(pos)
+	velocity = Vector2(SPEED, 0).rotated(dir)
+
+func _process(delta):
+	set_position(get_position() + velocity * delta)
+	if not notifNode.is_on_screen():
+		queue_free()
+	
+func _on_area_enter(other):
+	if(other.is_in_group("enemy")):
+		print("colliding")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://area_enemy1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/spr_enemy1.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+[node name="area_enemy1" type="Area2D"]
+position = Vector2( 164, 196 )
+collision_layer = 9
+collision_mask = 9
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+velocity = Vector2( 0, 100 )
+
+[node name="spr_enemy1" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="col_enemy1" type="CollisionShape2D" parent="."]
+rotation = 3.13322
+shape = SubResource( 1 )
+
+[node name="notif_enemy1" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -1.90735e-006, 1 )
+scale = Vector2( 0.9, 0.95 )
+
+[node name="timer_enemySpawn" type="Timer" parent="."]
+wait_time = 0.25
