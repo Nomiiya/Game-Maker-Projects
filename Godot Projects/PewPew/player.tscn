@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player_controller.gd" type="Script" id=1]
-[ext_resource path="res://col_area_bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/spr_ply1.jpg" type="Texture" id=3]
-[ext_resource path="res://Sprites/spr_ply_arm3.png" type="Texture" id=4]
-[ext_resource path="res://spr_playerArm.gd" type="Script" id=5]
-[ext_resource path="res://pos_bulletSpawn.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/spr_ply1.jpg" type="Texture" id=2]
+[ext_resource path="res://Sprites/spr_ply_arm3.png" type="Texture" id=3]
+[ext_resource path="res://spr_playerArm.gd" type="Script" id=4]
+[ext_resource path="res://pos_bulletSpawn.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -15,10 +14,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-bullet = ExtResource( 2 )
 
 [node name="spr_player" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="col_player" type="CollisionShape2D" parent="."]
 scale = Vector2( 0.8, 0.801355 )
@@ -30,9 +28,9 @@ one_shot = true
 
 [node name="spr_playerArm" type="Sprite" parent="."]
 scale = Vector2( 1.9338, -1.59994 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 offset = Vector2( 4, 0 )
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_ik_": true
 }
@@ -40,13 +38,13 @@ __meta__ = {
 [node name="pos_bulletSpawn" type="Position2D" parent="spr_playerArm"]
 position = Vector2( 8.79098, 0 )
 scale = Vector2( 0.517117, -0.625023 )
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_ik_": true
 }
 
 [node name="Sprite" type="Sprite" parent="spr_playerArm/pos_bulletSpawn"]
 scale = Vector2( 0.312501, 0.437499 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="bulletContainer" type="Node" parent="."]

@@ -1,7 +1,7 @@
 extends Node2D
 
 var player = preload("res://Scenes/kb_player.tscn") # player
-#var enemy1 = preload("res://area_enemy1.tscn") # test enemy
+var enemy_temp = preload("res://Scenes/enemy_base.tscn") # test enemy
 var enemy_zerker = preload("res://Scenes/enemy_zerker.tscn")
 
 func _ready():
@@ -16,8 +16,10 @@ func _process(delta):
 
 func _spawn_enemies():
 	var spawner = get_node("enemySpawn/spwn_zerker")
-	var enemy = enemy_zerker.instance()
-	enemy.set_position(spawner.get_position())
+	#var enemy = enemy_zerker.instance()
+	var enemy = enemy_temp.instance()
+	#enemy.set_position(spawner.get_position())
+	enemy.set_position($enemyPaths/path_enemy_base.position)
 	get_node("enemyContainer").add_child(enemy)
 	
 func _spawn_player():
